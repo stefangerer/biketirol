@@ -74,3 +74,18 @@ L.control.fullscreen().addTo(map);
 overlays.gpx.addTo(map);
 
 // GPX Track Layer implementieren
+let gpxTrack = new L.GPX("../data/12.gpx", {
+    async: true, 
+    marker_options:{
+        startIconUrl: 'icons/start.png',
+        endIconUrl: 'icons/finish.png',
+        shadowUrl: null,
+        iconSize: [32, 37],
+        iconAnchor: [16, 37], 
+    }, 
+    polyline_options:{
+        color: "black", 
+        dashArray: [2, 5], 
+    },
+    
+}).addTo(overlays.gpx); 
