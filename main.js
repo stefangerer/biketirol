@@ -106,3 +106,15 @@ gpxTrack.on("loaded", function(evt) {
         </ul>`;
         gpxLayer.bindPopup(popup);
     }); 
+
+    let elevationControl = L.control.elevation({
+        time: false, 
+        height: 200,
+        elevationDiv: "#profile",
+        theme: 'bike-tirol', 
+        height: 200,  
+    }).addTo(map);
+
+    gpxTrack.on("addline", function(evt) {
+        elevationControl.addData(evt.line);
+    });
