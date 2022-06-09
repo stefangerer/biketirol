@@ -89,3 +89,7 @@ let gpxTrack = new L.GPX("../data/12.gpx", {
     },
     
 }).addTo(overlays.gpx); 
+
+gpxTrack.on("loaded", function(evt) {
+    map.fitBounds(evt.target.getBounds()); 
+}); 
